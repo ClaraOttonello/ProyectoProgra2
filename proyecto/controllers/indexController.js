@@ -1,7 +1,7 @@
 var data = require('../db/data');
-const controller = {
+const indexController = {
     index: function(req, res) {
-        res.render(data.lista);
+        res.render(data.user);
     },
     login: function(req, res) {
         res.render('login');
@@ -11,4 +11,4 @@ const controller = {
     }
 }
 
-module.exports = controller;
+module.exports = indexController;

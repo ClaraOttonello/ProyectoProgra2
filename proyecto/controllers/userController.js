@@ -1,12 +1,14 @@
 var data = require('../db/data');
 
-const controller = {
+const userController = {
+
     profile: function(req, res) {
         res.render('index');
     },
+    
     edit: function(req, res) {
         res.render('index');
     }
 }
 
-module.exports = controller;
+module.exports = userController;
