@@ -2,7 +2,7 @@
 <h1>Productos</h1>
 <ul>
   <% for (let i= 0; i < products.length; i++) { %>
-    <li><a href="/product_detail/<%= products[i].id %>"><%= products[i].name %></a></li>
+    <li><a href="/products/<%= products[i].id %>"><%= products[i].name %></a></li>
   <% } %>
 </ul>
 <%- include('./partials/footer.ejs') %> 
