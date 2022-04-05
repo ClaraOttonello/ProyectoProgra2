@@ -12,12 +12,8 @@ const productController = {
         }
     },
 
-    show: function(req, res) {
-        const result = data.lista[req.params.id - 1];
-        if (!result) {
-            res.render('product_detail', {detail: 'No hay ningun producto con el ID ' + req.params.id});
-        }
-        res.send(result);
+    detail: function(req, res) {
+        res.render('product_detail', {product: data.products[id]  });
     },
 
     add: function(req, res) {

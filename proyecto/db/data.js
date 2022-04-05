@@ -107,5 +107,7 @@ const data  = {
          } 
      ]
 };
-//armar las funciones y exportarlas: getAll, findProductByName//
-module.exports = data;
+
+
+module.exports = data
+
