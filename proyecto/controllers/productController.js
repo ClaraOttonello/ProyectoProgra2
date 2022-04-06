@@ -13,7 +13,7 @@ const productController = {
     },
 
     show: function(req, res) {
-        res.render('product_detail', {product: data.products[req.params.id]  });
+        res.render('product_detail', {product: data.products[req.params.id-1]  });
     },
 
     add: function(req, res) {

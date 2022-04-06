@@ -3,7 +3,8 @@ const data  = {
             name:'Leonel Messi',
             mail:'leo10@gmail.com',
             age:'34',
-            phone:'+54 9 11 41900357'
+            phone:'+54 9 11 41900357',
+            picture: "https://fcb-abj-pre.s3.amazonaws.com/img/jugadors/MESSI.jpg"
      },
      products: [
          {
