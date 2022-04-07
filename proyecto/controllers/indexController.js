@@ -1,7 +1,7 @@
 var data = require('../db/data');
 const indexController = {
     index: function(req, res) {
-        res.render(data.user);
+        res.render('index');
     },
     login: function(req, res) {
         res.render('login');

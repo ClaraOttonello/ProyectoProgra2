@@ -4,9 +4,9 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
+  --yellow: rgb(50, 93, 232);
   --dark-blue: #03264C;
-  --light-blue: #1259c3;
+  --light-blue: #ffffff;
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;

@@ -1,8 +1,23 @@
 <%- include('./partials/header.ejs') %> 
 <h1>Productos</h1>
-<ul>
-  <% for (let i= 0; i < products.length; i++) { %>
-    <li><a href="/products/<%= products[i].id %>"><%= products[i].name %></a></li>
+  <% for (let i=0; i < products.length; i++) { %>
+    <div class="container products-wrapper">
+      <div class="row">
+    <div class="col-12 col-sm-6 col-lg-3">
+      <section class="product-box">
+        <a href="/products/<%= products[i].id %>">
+          <figure class="product-box_image">
+            <img src="<%= products[i].img %>" alt="cafetera moulinex">
+          </figure>
+          <article class="product-box_data">
+            <h2><%= products[i].name %></h2>
+            <p><%= products[i].price %></p>
+          </article>
+        </a>
+      </section>
+    </div>
+    </div>
+    </div>
   <% } %>
 </ul>
-<%- include('./partials/footer.ejs') %> 
+<%- include('./partials/footer.ejs') %>
