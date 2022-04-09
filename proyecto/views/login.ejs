@@ -1,7 +1,15 @@
 <%- include('./partials/header.ejs') %> 
-<form action="/ProyectoProgra2/proyecto/views/index.ejs">
-    <input type="email" id="Email" placeholder="Email">
-    <input type="password" id="password">
-    <input type="checkbox" id="remember">
+<form action="/ProyectoProgra2/proyecto/views/index.ejs" class="form-label">
+    <div>
+        <label for="Email" class="form-label">Email</label>
+        <input type="email" id="Email" class="form-input" >
+      </div>
+      <div>
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" id="password" class="form-input">
+      </div>
+    <div>
+    <input type="checkbox" id="remember" class="form-input">
+    </div>
 </form>
 <%- include('./partials/footer.ejs') %> 

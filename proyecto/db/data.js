@@ -62,21 +62,21 @@ const data  = {
            id:'8',
            price:'$55.000',
            description:'Este sillón de 3 cuerpos es ideal para utilizar con mesas de exterior en countries, casas de campo o bien en tu jardín. Con un diseño especial, está realizado en aluminio y resiste todo tipo de usos. El mismo se puede utilizar tanto en el interior como en el exterior de tu hogar. Si buscás un sillón resistente y donde no debas preocuparte por el agua, este es el producto ideal para vos.',
-           img: '/img/sillon_ext.jpeg'
+           img: '/img/sillon-exterior-moderno.jpeg'
          },
          {
            name:'Placard', 
            id:'9',
            price:'$100.000',
            description:'Placard Reflex con puertas y un centro con espejos. La amplitud es la característica principal de este bello ropero. Esta línea de muebles viene desarmada, preparada para ensamblar de manera rápida y simple. Dentro de cada caja podrás encontrar las correspondientes instrucciones y los componentes necesarios para su correcto armado. Este armario debe ser armado por un mínimo de 2 personas.',
-           img: ''
+           img: '/img/placard.jpeg'
          },
          {
            name:'Cuadro', 
            id:'10',
            price:'$6.000',
            description:'Cuadro con poster de paisaje del Parque Nacional Iguazú. Medidas de 100cm x 60cm. Borde de madera y vidrio protector de poster. Colores vividos.',
-           img: ''
+           img: '/img/cuadro.webp'
          },
          {
            name:'Sofá individual', 
