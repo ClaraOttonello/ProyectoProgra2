@@ -7,7 +7,7 @@ const userController = {
     },
     
     edit: function(req, res) {
-        res.render('index');
+        res.render('edit_profile');
     }
 }
 

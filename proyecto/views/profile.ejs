@@ -1,5 +1,8 @@
 <%- include('./partials/headerLogeado.ejs') %> 
 <h1><%= user.name %></h1>
+<a href="/users/me/edit">
+  Editar
+</a>
 <ul>
   <li><b>Email:</b> <%= user.mail %></li>
   <li><b>Phone:</b> <%= user.phone %></li>

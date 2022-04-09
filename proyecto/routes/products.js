@@ -4,7 +4,7 @@ var controller = require('../controllers/productController')
 
 router.get('/', controller.index);
 router.get('/comments', controller.showComment);
-router.get('/:id', controller.show);
+router.get('/detail/:id', controller.show);
 router.get('/add', controller.add);
 
 module.exports = router;
