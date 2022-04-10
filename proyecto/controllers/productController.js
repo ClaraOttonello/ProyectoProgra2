@@ -17,7 +17,7 @@ const productController = {
     },
 
     add: function(req, res) {
-        res.render('index');
+        res.render('add_product');
     },
 
     //Prueba comentarios despúes arreglamos y cambiamos

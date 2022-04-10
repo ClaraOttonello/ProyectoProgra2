@@ -428,10 +428,22 @@ hr {
 }
 
 /*====== Formularios ======*/
+.form {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
 .form-label {
+  flex-wrap: wrap;
   display: inline-block;
   font-size: 1.6em;
-  margin: 10px 0;
+  margin: 10px 0 ;
 }
 
 .form-input {
