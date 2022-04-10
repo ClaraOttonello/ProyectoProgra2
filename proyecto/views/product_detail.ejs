@@ -1,8 +1,35 @@
 <%- include('./partials/header.ejs') %> 
-    <h1><%= product.name %></h1>
-    <ul>
-      <li><b>Description:</b><%= product.description %></li>
-      <li><b>Price:</b>$ <%= product.price %></li>
-    </ul>
-    <img src="<%= product.img%>" style="max-width: 200px;"/>
+<div class="container products-wrapper">
+  <div class="d-flex align-items-center">
+    <h2 class="products-title"><%= product.name %></h2> 
+  </div>
+  <div class="product-detail">
+    <div class="row">
+      <article class="col-12 col-lg-8 product-detail-info">
+        <img src="<%= product.img%>" alt="" class="product-detail-img">
+        <strong><p class="product-detail-description"><%= product.price %></p></strong>
+        <p class="product-detail-description"><%= product.description %></p>
+      </article>
+      <div class="col-12 col-lg-4">
+        <section class="comments">
+          <% for (let i=0; i<comments.length; i++){ %>
+              <article>
+                <img src="<%= comments[i].img %>" alt="">
+                <div class="data">
+                <p class="user">
+                <strong> <a href="profile.html"><%= comments[i].name %></a> </strong>
+                <%= comments[i].comment %></p>
+                </div>
+              </article>
+              <%}%>
+        </section>
+        <form class="form" action="" method="POST">
+          <input class="form-input" type="text" value="" placeholder="Agregar comentario">
+          <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+        </form>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>
 <%- include('./partials/footer.ejs') %> 

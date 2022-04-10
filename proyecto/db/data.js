@@ -4,7 +4,7 @@ const data  = {
             mail:'leo10@gmail.com',
             age:'34',
             phone:'+54 9 11 41900357',
-            picture: "https://fcb-abj-pre.s3.amazonaws.com/img/jugadors/MESSI.jpg"
+            picture: "https://pbs.twimg.com/profile_images/1291372653866033157/3PlDuuak_400x400.jpg"
      },
      products: [
          {
@@ -97,27 +97,27 @@ const data  = {
          {
              name:'Leonel Messi',
              comment:'Increíble servicio, silla muy cómoda. Recomiendo la los productos y el servicio.',
-             img:''
+             img:'https://pbs.twimg.com/profile_images/1291372653866033157/3PlDuuak_400x400.jpg'
          }, 
          {
              name:'María Gómez',
              comment:'El envío se tardó mucho, pero los muebles que pedí son geniales.',
-             img:''
+             img:'https://www.ecured.cu/images/thumb/7/7f/Monta%C3%B1a00.jpg/1200px-Monta%C3%B1a00.jpg'
          }, 
          {
              name:'Esteban Quito',
              comment:'Me gutó mucho el banquito que compré. Muy buenos precios y la calidad increíble.',
-             img:''
+             img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Gaucho1868b.jpg/200px-Gaucho1868b.jpg'
          }, 
          {
              name:'Sol López',
              comment:'Tuve un problema con el envío. Preferiría seleccionar la empresa que se encarga de este. Los muebles increíbles.',
-             img:''
+             img:'https://www.lavanguardia.com/files/article_main_microformat/uploads/2018/03/06/5fa43260b4d85.jpeg'
          }, 
          {
              name:'Mirta Gonzalez',
              comment:'Muy buen precio y buena calidad. Muebles cómodos. A la hora de elegir hay muchas opciones. Buen servicio.',
-             img:''
+             img:'https://storage.googleapis.com/diariodemocracia/cache/64/29/mirta-legrand-0fff82.jpg'
          } 
      ]
 };
