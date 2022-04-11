@@ -19,6 +19,11 @@
   box-sizing: border-box;
 }
 
+h1, h2{
+  font-size: 100px;
+  font-weight: 300;
+}
+
 html,
 body {
   min-height: 100vh;
@@ -27,7 +32,7 @@ body {
 }
 
 body {
-  font-family: var(--base-font-family);
+  font-family: 'Abel', sans-serif;
   font-weight: 300;
   background-color: var(--light-gray);
 }
@@ -63,7 +68,6 @@ hr {
   border: none;
   border-bottom: solid 1px var(--light-gray);
 }
-
 
 /*====== Main Header ======*/
 .main-header {
@@ -439,6 +443,9 @@ hr {
   align-items: center;
 }
 
+.checkremember{
+  display: flex;
+}
 
 .form-label {
   flex-wrap: wrap;
