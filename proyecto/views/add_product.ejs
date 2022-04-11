@@ -5,7 +5,7 @@
           <h2 class="products-title">Agregar productos</h2>
         </div>
         <!-- Show the "ultimos" products -->
-        <form class="form-label">
+        <form action="/products" class="form-label">
 
           <div>
             <label for="name" class="form-label">Nombre del producto</label>
@@ -23,5 +23,6 @@
             <label for="date" class="form-label">Fecha</label>
             <input type="date" id="date" class="form-input">
           </div>
+          <button class="buy-now-button" type="submit"> Agregar Producto</button>
         </form>
   <%- include('./partials/footer.ejs') %>

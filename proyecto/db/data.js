@@ -76,7 +76,7 @@ const data  = {
            id:'10',
            price:'$6.000',
            description:'Cuadro con poster de paisaje del Parque Nacional Iguazú. Medidas de 100cm x 60cm. Borde de madera y vidrio protector de poster. Colores vividos.',
-           img: '/img/cuadro.webp'
+           img: '/img/cuadro.jpg'
          },
          {
            name:'Sofá individual', 
