@@ -16,9 +16,8 @@
               <article>
                 <img src="<%= comments[i].img %>" alt="">
                 <div class="data">
-                <p class="user">
-                <strong> <a href="/users/me"><%= comments[i].name %></a> </strong>
-                <%= comments[i].comment %></p>
+                <p class="user"><a href="/users/me"><%= comments[i].name %></a></p>
+                <p><%= comments[i].comment %></p>
                 </div>
               </article>
               <%}%>

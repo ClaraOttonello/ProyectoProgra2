@@ -19,11 +19,6 @@
   box-sizing: border-box;
 }
 
-h1, h2{
-  font-size: 100px;
-  font-weight: 300;
-}
-
 html,
 body {
   min-height: 100vh;
@@ -430,6 +425,8 @@ hr {
 }
 .comments .user{
   font-size: 1.7em;
+  margin-bottom: 1.5%;
+  margin-top: 3%;
 }
 
 /*====== Formularios ======*/
