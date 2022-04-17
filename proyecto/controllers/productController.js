@@ -2,15 +2,11 @@ var data = require('../db/data');
 
 const productController = {
 
-    index: function(req, res, next){
+    index: function(req, res){
         res.render('product_index', {products: data.products});
     },
 
-    search: function(req, res) {
-        if (req.query) {
-            res.render ('search_results',{results: data.findProductsBy(req.query)});
-        }
-    },
+
 
     show: function(req, res) {
         res.render('product_detail', {product: data.products[req.params.id-1], comments: data.comments});
