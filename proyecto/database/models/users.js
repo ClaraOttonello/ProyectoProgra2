@@ -5,11 +5,12 @@ module.exports = function (sequelize, dataTypes) {
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        _name: { type: dataTypes.STRING },
-        mail: { type: dataTypes.STRING },
-        age: { type: dataTypes.INETEGER },
+        email: { type: dataTypes.STRING },
+        username: { type: dataTypes.STRING },
+        pass: {type: dataTypes.STRING},
+        birthd: { type: dataTypes.DATE},
+        phone: {type: dataTypes.INTEGER},
         img: { type: dataTypes.STRING },
-        //password: { type: dataTypes.STRING },
     }
 
     const configs = {
