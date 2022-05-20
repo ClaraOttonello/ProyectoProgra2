@@ -1,12 +1,15 @@
 var data = require('../db/data');
 var db = require ('../database/models')
+
 const indexController = {
     index: function (req, res) {
         res.render('index', { products: data.products });
     },
+
     login: function (req, res) {
         res.render('login');
     },
+
     access: function(req, res, next) {
         db.User.findOne({ where: { username: req.body.username }})
             .then(function(user) {
@@ -21,9 +24,11 @@ const indexController = {
                 next(err)
             })
     },
+
     register: function (req, res) {
         res.render('register');
     },
+    
     store: function (req, res) {
         if (!req.body.email) { throw Error('Not email provided.') }
         const hashedPassword = hasher.hashSync(req.body.pass, 10);
