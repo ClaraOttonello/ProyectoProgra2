@@ -1,12 +1,15 @@
-var data = require('../db/data');
-var db = require('../database/models')
+
+var db = require('../database/models');
+
+const product = db.products;
 
 const productController = {
 
     index: function (req, res) {
-        db.findAll()
+        product.findAll()
             .then(function(products){
-                res.render('product_index', { products });
+                console.log(products);
+                res.render('product_index', {products});
             })
             .catch(function (error) {
                 res.send(error)

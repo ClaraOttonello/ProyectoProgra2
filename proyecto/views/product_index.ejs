@@ -11,11 +11,11 @@
       <section class="product-box">
         <a href="/products/detail/<%= products[i].id %>" >
           <figure class="product-box_image">
-            <img src= <%= products[i].img %> alt="<%= products[i].name %>" class="img-index">
+            <img src= <%= products[i].img %> alt="<%= products[i]._name %>" class="img-index">
           </figure>
           <article class="product-box_data">
-            <h2><%= products[i].name %></h2>
-            <p><%= products[i].description %></p>
+            <h2><%= products[i]._name %></h2>
+            <p><%= products[i]._description %></p>
             <p>Comentarios: 12</p>
           </article>
         </a>

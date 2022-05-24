@@ -1,4 +1,5 @@
 module.exports = function (sequelize, dataTypes) {
+let alias = 'comment';
     const cols = {
         id: {
             autoIncrement: true,
@@ -7,17 +8,17 @@ module.exports = function (sequelize, dataTypes) {
         },
         _name: { type: dataTypes.STRING },
         content: { type: dataTypes.STRING },
-        age: { type: dataTypes.INETEGER },
+        age: { type: dataTypes.INTEGER },
         img: { type: dataTypes.STRING },
         password: { type: dataTypes.STRING },
     }
 
     const configs = {
-        tableName: 'users',
+        tableName: 'comments',
         timestamps: false
     }
 
-    const Comment = sequelize.define('Comment', cols, configs);
+    const Comment = sequelize.define (alias, cols, configs);
 
     return Comment;
 }
