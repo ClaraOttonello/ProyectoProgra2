@@ -1,14 +1,14 @@
 <%- include('./partials/headerLogeado.ejs') %> 
 <div class="container products-wrapper">
   <div class="d-flex align-items-center">
-    <h2 class="products-title"><%= product.name %></h2> 
+    <h2 class="products-title"><%= products._name %></h2> 
   </div>
   <div class="product-detail">
     <div class="row">
       <article class="col-12 col-lg-8 product-detail-info">
-        <img src="<%= product.img%>" alt="" class="product-detail-img">
-        <strong><p class="product-detail-description"><%= product.price %></p></strong>
-        <p class="product-detail-description"><%= product.description %></p>
+        <img src="<%= products.img%>" alt="" class="product-detail-img">
+        <strong><p class="product-detail-description"><%= products.price %></p></strong>
+        <p class="product-detail-description"><%= products._description %></p>
       </article>
       <div class="col-12 col-lg-4">
         <section class="comments">
@@ -31,4 +31,9 @@
     </div>
   </div>
 </div>
+<% if (locals.user && user.id == products.user_id) { %>
+  <form action="/products/<%= products.id %>/delete" method="post">
+    <input class="btn btn-danger" type="submit" value="Borrar">
+  </form>
+<% } %>
 <%- include('./partials/footer.ejs') %> 
