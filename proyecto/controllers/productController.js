@@ -17,9 +17,9 @@ const productController = {
     },
 
     show: function(req, res) {
-        db.Product.findByPk(req.params.id)
+        product.findByPk(req.params.id)
             .then(function (products) {
-                res.render('product_index', { products });
+                res.render('search_results', { products });
             })
             .catch(function (error) {
                 res.send(error);
