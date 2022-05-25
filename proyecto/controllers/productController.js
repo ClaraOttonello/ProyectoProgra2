@@ -52,8 +52,8 @@ const productController = {
     },
     edit: function(req, res) {
        product.findByPk(req.params.id)
-            .then(function (product) {
-                res.render('product_edit', { product });
+            .then(function (products) {
+                res.render('product_edit', { products });
             })
             .catch(function (error) {
                 res.send(error);
@@ -61,7 +61,7 @@ const productController = {
     },
     update: function(req, res) {
         product.update(req.body, { where: { id: req.params.id } })
-            .then(function(product) {
+            .then(function(products) {
                 res.redirect('/')
             })
             .catch(function(error) {
