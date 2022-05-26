@@ -1,5 +1,6 @@
 var db = require ('../database/models');
 const users = db.users;
+const hasher = require('bcryptjs');
 
 const indexController = {
     index: function (req, res) {
@@ -30,6 +31,9 @@ const indexController = {
     },
     
     store: function (req, res) {
+        let img = req.file.fieldname;
+        let info = req.body;
+        
         if (!req.body.email) { throw Error('Not email provided.') }
         const hashedPassword = hasher.hashSync(req.body.pass, 10);
         users.create({
@@ -43,6 +47,7 @@ const indexController = {
             .catch(function (error) {
                 res.send(error);
             })
+          res.redirect("/");
     }
 }
 

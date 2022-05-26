@@ -1,29 +1,25 @@
 <%- include('./partials/header.ejs') %> 
 <main class="form">
-<form action= "/" class="form-label" method="POST">
+<form action= "/register" class="form-label" method="POST" enctype="multipart/form-data"> 
    <div>
     <label for="email" class="form-label">Email</label>
-    <input type="email" id="email" class="form-input" placeholder="furniture@gmail.com" name="email">
+    <input type="email" id="email" class="form-input" placeholder="furniture@gmail.com" name="email"/>
   </div>
   <div>
     <label for="username" class="form-label">Nombre de usuario</label>
-    <input type="text" id="username" class="form-input" placeholder="@username" name="username">
+    <input type="text" id="username" class="form-input" placeholder="@username" name="username"/>
   </div>
   <div>
     <label for="pass" class="form-label">Contraseña</label>
-    <input type="password" id="pass" class="form-input" placeholder="Contraseña" name="pass">
+    <input type="password" id="pass" class="form-input" placeholder="Contraseña" name="pass"/>
   </div>
   <div>
     <label for="birthd" class="form-label">Fecha de nacimiento</label>
-    <input type="date" id="birthd"class="form-input" name="birthd">
-  </div>
-  <div>
-    <label for="phone" class="form-label">ID</label>
-    <input type="number" id="phone" class="form-input" placeholder="+54 9 11 111111" name="phone">
+    <input type="date" id="birthd"class="form-input" name="birthd"/>
   </div>
   <div>
     <label for="img" class="form-label">Foto de perfil</label>
-    <input type="file" id="img" class="form-input" name="img">
+    <input type="file" id="img" class="form-input" name="img"/>
   </div>
   <button class="buy-now-button" type="submit"> Registrarme </button>
 </form>

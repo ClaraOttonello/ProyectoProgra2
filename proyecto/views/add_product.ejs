@@ -5,14 +5,14 @@
           <h2 class="products-title">Agregar productos</h2>
         </div>
         <!-- Show the "ultimos" products -->
-        <form action="/products" class="form-label">
+        <form action="/products" class="form-label" enctype="multipart/form-data" >
           <div>
             <label for="name" class="form-label">Nombre del producto</label>
             <input type="text" id="name" class="form-input">
           </div>
           <div>
             <label for="productPh" class="form-label">Foto de producto</label>
-            <input type="file" id="productPh" class="form-input">
+            <input type="file" id="productPh" name="image" class="form-input">
           </div>
           <div>
             <label for="description" class="form-label">Descripción</label>
