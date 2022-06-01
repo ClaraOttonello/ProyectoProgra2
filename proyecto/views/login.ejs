@@ -1,21 +1,21 @@
 <%- include('./partials/header.ejs') %> 
 <main class="form">
-<form action="/" class="form-label">
+<form action="/products/login" class="form-label" method='POST' >
     <div>
         <label for="email" class="form-label">Email</label>
-        <input type="email" id="email" class="form-input" placeholder="furniture@gmail.com">
+        <input type="email" id="email" class="form-input" placeholder="furniture@gmail.com" name="email">
       </div>
     <div>
         <label for="username" class="form-label">Username</label>
-        <input type="username" id="username" class="form-input" placeholder="furniture@gmail.com">
+        <input type="username" id="username" class="form-input" placeholder="furniture@gmail.com" name="username">
       </div>
       <div>
         <label for="pass" class="form-label">Contraseña</label>
-        <input type="pass" id="pass" class="form-input" placeholder="Contraseña">
+        <input type="pass" id="pass" class="form-input" placeholder="Contraseña" name="pass">
       </div>
     <div class="checkremember">
     <label for="password" class="form-label">Recordarme</label>
-    <input type="checkbox" id="remember" class="form-input">
+    <input type="checkbox" id="rememberme" class="form-input" name="rememberme">
     </div>
     <button type="submit" class="buy-now-button"> Ingresar </button>
 </form>
