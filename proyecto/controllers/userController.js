@@ -14,7 +14,7 @@ const userController = {
     },
 
     login: function (req, res) {
-        res.render('login');
+        res.render('login', {title: 'Login'});
     },
 
     access: function(req, res, next) {
@@ -22,9 +22,9 @@ const userController = {
             .then(function(user) {
                 if (!user) throw Error('User not found.')
                 if (hasher.compareSync(req.body.pass, user.pass)) {
-                    req.sesssion.user = user;
+                    req.session.user = user;
                    if (req.body.rememberme) {
-                       res.cookie('userId', user.id, {maxAge: 1000 * 60 * 60 * 7 })
+                       res.cookie('userId', user.id, {maxAge: 1000 * 60 * 60 * 7 });
                    }
                    res.redirect('/');
                 } else {

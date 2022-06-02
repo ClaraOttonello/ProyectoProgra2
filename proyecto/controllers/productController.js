@@ -8,7 +8,6 @@ const productController = {
     index: function (req, res) {
         product.findAll()
             .then(function(products){
-                console.log(products);
                 res.render('product_index', {products});
             })
             .catch(function (error) {

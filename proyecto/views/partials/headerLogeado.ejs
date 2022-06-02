@@ -53,12 +53,26 @@
                     <li><a href="/products">Todos los productos</a></li>
 					<li><a href="/products/add">Cargar productos</a></li>
 				</ul>
-	
-				<ul class="right-navbar">
-					<li><a href="/users/me">
-						Leonel Messi <i class="fas fa-user"></i>
-						</a>
+
+				<% if (locals.user) { %>
+				<ul>
+					<li class="nav-item">
+					  <a class="nav-link"> Hello <%= user.username %></a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/users/me">Profile</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="/products/add">Add Product</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="/logout"> Logout</a>
+					</li>
+				</ul>
+
+			<% } else { %>	
+
+				<ul class="right-navbar">
 					<li>
 						<a href="/">Cerrar sesión <i class="fas fa-sign-in-alt"></i></a>
 					</li>
@@ -69,6 +83,8 @@
 						<a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
 					</li>
 				</ul>
+				
+			<% } %> 
 			</nav>
 		</div>
 	</header>

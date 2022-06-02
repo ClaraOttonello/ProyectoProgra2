@@ -1,19 +1,16 @@
 var db = require ('../database/models');
-const users = db.users;
-const hasher = require('bcryptjs');
+const products = db.products;
 
 const indexController = {
     index: function (req, res) {
-        db.products.findAll()
-
-        .then(function(data){
-            console.log(data[0].id);
-            res.render('index', { products: data });
-        })
-        
+        products.findAll()
+            .then(function(products){
+                res.render('product_index', {products});
+            })
+            .catch(function (error) {
+                res.send(error)
+            });           
     },
-
-   
 }
 
 module.exports = indexController;
