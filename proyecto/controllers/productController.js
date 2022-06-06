@@ -28,8 +28,8 @@ const productController = {
     },
 
     store: function(req, res) {
-        req.send (req.files);
         req.body.user_id = req.session.user.id;
+        
         if (req.file) req.body.img = (req.file.path).replace('public', '');
         //image es el nombre del campo del formulario que carga la imagen
         //para que venga el req.file primero le pusimos al formulario el enctype="multipart/form-data" 
