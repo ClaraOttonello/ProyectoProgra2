@@ -11,7 +11,7 @@ router.get('/:id/edit', controller.edit);
 router.post('/:id/edit', controller.update); //falta algo aca
 
 router.get('/add', controller.add);
-router.post('/add', upload.single('image'), controller.store);
+router.post('/add', upload.single('img'), controller.store);
 //upload.single es un middleware que va entre la ruta y el controlador como intermedio, 'image' es el name del campo del formulario
 
 router.post('/:id/delete', controller.delete);

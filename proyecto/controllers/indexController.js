@@ -2,6 +2,7 @@ var db = require ('../database/models');
 const products = db.products;
 
 const indexController = {
+    
     index: function (req, res) {
         products.findAll()
             .then(function(products){
