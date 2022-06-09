@@ -6,11 +6,10 @@ let alias = 'comment';
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        _name: { type: dataTypes.STRING },
         content: { type: dataTypes.STRING },
-        age: { type: dataTypes.INTEGER },
-        img: { type: dataTypes.STRING },
-        password: { type: dataTypes.STRING },
+        user_id: { type: dataTypes.INTEGER },
+        product_id: { type: dataTypes.INTEGER },
+        created_at: { type: dataTypes.DATE},
     }
 
     const configs = {
@@ -22,13 +21,13 @@ let alias = 'comment';
 
     
     Comment.associate = function(models) {
-        Comment.belongsTo(models.user, {
+        Comment.belongsTo(models.users, {
             as: 'user',
             foreignKey: 'user_id'
         });
-        Comment.belongsTo(models.proudcts, {
+        Comment.belongsTo(models.products, {
             as: 'product',
-            foreignKey: 'book_id'
+            foreignKey: 'product_id'
         })
     }
 
