@@ -10,20 +10,22 @@
         <strong><p class="product-detail-description"><%= product.price %></p></strong>
         <p class="product-detail-description"><%= product._description %></p>
       </article>
+      
       <div class="col-12 col-lg-4">
+
         <section class="comments">
         <h2>Comentarios</h2>
           <% for (let i= 0; i < product.comments.length; i++) { %>
             <div class="card mb-2">
               <div class="card-body">
-                <b><%= product.comments[i].author.username %></b></br>
-                <%= book.comments[i].content %>
+                <b><%= product.comments[i].user.username %></b></br>
+                <%= product.comments[i].content %>
               </div>
             </div>
           <% } %>
         </section>
-        <form class="form" action="/product/detail/<%= product.id %>">
-          <input class="form-input" type="text" value="" placeholder="Agregar comentario">
+        <form class="form" action="/products/detail/<%= product.id %>" method="POST">
+          <input class="form-input" type="text" value="" name="content" id="content" placeholder="Agregar comentario">
           <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
         </form>
         <hr>
