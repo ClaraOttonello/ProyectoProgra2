@@ -23,7 +23,7 @@ let alias = 'products';
         Product.belongsTo(models.users,{
             as: 'owner',
             foreignKey: 'user_id'
-        })
+        }),
         Product.hasMany(models.comment, {
             as: 'comments',
             foreignKey: 'product_id'

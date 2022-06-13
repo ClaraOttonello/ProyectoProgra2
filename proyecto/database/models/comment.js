@@ -24,7 +24,7 @@ let alias = 'comment';
         Comment.belongsTo(models.users, {
             as: 'user',
             foreignKey: 'user_id'
-        });
+        }),
         Comment.belongsTo(models.products, {
             as: 'product',
             foreignKey: 'product_id'

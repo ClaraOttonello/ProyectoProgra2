@@ -14,8 +14,9 @@ const productController = {
     },
 
     show: function(req, res) {
-        product.findByPk(req.params.id, {include:{ all: true} })
+        product.findByPk(req.params.id, {include:{ all: true,nested:true} })
             .then(function (product) {
+                console.log(product.dataValues);
                 res.render('product_detail', { product });
             })
             .catch(function (error) {
@@ -84,7 +85,7 @@ const productController = {
         req.body.product_id = req.params.id;
         db.comment.create(req.body)
             .then(function() {
-                res.redirect('/products/' + req.params.id)
+                res.redirect('/products/detail/' + req.params.id)
             })
             .catch(function(error) {
                 res.send(error);
