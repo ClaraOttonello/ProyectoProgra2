@@ -14,11 +14,12 @@ const productController = {
     },
 
     show: function(req, res) {
-        product.findByPk(req.params.id)
-            .then(function (products) {
-                res.render('product_detail', { products });
+        product.findByPk(req.params.id, {include:{ all: true} })
+            .then(function (product) {
+                res.render('product_detail', { product });
             })
             .catch(function (error) {
+                console.log(req.params.id)
                 res.send(error);
             })
     },
@@ -68,6 +69,22 @@ const productController = {
         product.update(req.body, { where: { id: req.params.id } })
             .then(function(products) {
                 res.redirect('/')
+            })
+            .catch(function(error) {
+                res.send(error);
+            })
+    },
+    comment: function(req, res) {
+        if (!req.session.user) { 
+            throw Error('Not authorized.')
+        }
+        // Set user from session user
+        req.body.user_id = req.session.user.id;
+        // Set book from url params
+        req.body.product_id = req.params.id;
+        db.Comment.create(req.body)
+            .then(function() {
+                res.redirect('/products/' + req.params.id)
             })
             .catch(function(error) {
                 res.send(error);

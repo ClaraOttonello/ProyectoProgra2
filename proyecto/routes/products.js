@@ -6,6 +6,7 @@ const upload = multer({ dest: 'public/images/uploads' });
 
 router.get('/', controller.index);
 router.get('/detail/:id', controller.show);
+router.post('/detail/:id', controller.comment);
 
 router.get('/:id/edit', controller.edit);
 router.post('/:id/edit', controller.update); //falta algo aca

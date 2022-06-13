@@ -17,7 +17,18 @@ let alias = 'products';
         timestamps: false
     }
 
-    const product = sequelize.define(alias, cols, configs);
+    const Product = sequelize.define(alias, cols, configs);
 
-    return product;
+    Product.associate = function (models) {
+        Product.belongsTo(models.users,{
+            as: 'owner',
+            foreignKey: 'user_id'
+        })
+        Product.hasMany(models.comment, {
+            as: 'comments',
+            foreignKey: 'product_id'
+        })
+    }
+
+    return Product;
 }

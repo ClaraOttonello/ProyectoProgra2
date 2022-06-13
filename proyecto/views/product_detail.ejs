@@ -1,24 +1,28 @@
 <%- include('./partials/headerLogeado.ejs') %> 
-<div class="container products-wrapper">
+<div class="container product-wrapper">
   <div class="d-flex align-items-center">
-    <h2 class="products-title"><%= products._name %></h2> 
+    <h2 class="product-title"><%= product._name %></h2> 
   </div>
   <div class="product-detail">
     <div class="row">
       <article class="col-12 col-lg-8 product-detail-info">
-        <img src="<%= products.img%>" alt="" class="product-detail-img">
-        <strong><p class="product-detail-description"><%= products.price %></p></strong>
-        <p class="product-detail-description"><%= products._description %></p>
+        <img src="<%= product.img%>" alt="" class="product-detail-img">
+        <strong><p class="product-detail-description"><%= product.price %></p></strong>
+        <p class="product-detail-description"><%= product._description %></p>
       </article>
       <div class="col-12 col-lg-4">
         <section class="comments">
-
-
-<!-- Falta bucle comentarios -->
-
-
+        <h2>Comentarios</h2>
+          <% for (let i= 0; i < product.comments.length; i++) { %>
+            <div class="card mb-2">
+              <div class="card-body">
+                <b><%= product.comments[i].author.username %></b></br>
+                <%= book.comments[i].content %>
+              </div>
+            </div>
+          <% } %>
         </section>
-        <form class="form" action="/products">
+        <form class="form" action="/product/detail/<%= product.id %>">
           <input class="form-input" type="text" value="" placeholder="Agregar comentario">
           <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
         </form>
@@ -27,8 +31,8 @@
     </div>
   </div>
 </div>
-<% if (locals.user && user.id == products.user_id) { %>
-  <form action="/products/<%= products.id %>/delete" method="post">
+<% if (locals.user && user.id == product.user_id) { %>
+  <form action="/product/<%= product.id %>/delete" method="post">
     <input class="btn btn-danger" type="submit" value="Borrar">
   </form>
 <% } %>

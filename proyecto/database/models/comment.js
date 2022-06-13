@@ -31,6 +31,5 @@ let alias = 'comment';
         })
     }
 
-
     return Comment;
 }
