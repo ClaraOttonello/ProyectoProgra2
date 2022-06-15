@@ -18,8 +18,10 @@ let store = multer.diskStorage({
 let upload = multer ({storage:store})
 
 router.get('/me/edit', controller.edit);
+router.post('/me/edit', controller.edit);
 
-router.get('/me', controller.profile);
+router.get('/me', controller.myProfile);
+/*router.get('/me', controller.profile);*/
 
 router.get('/login', controller.login);
 router.post('/login', controller.access);

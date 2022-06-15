@@ -14,7 +14,7 @@ const productController = {
     },
 
     show: function(req, res) {
-        product.findByPk(req.params.id, {include:{ all: true,nested:true} })
+        product.findByPk(req.params.id, {include:{ all: true, nested:true} })
             .then(function (product) {
                 console.log(product.dataValues);
                 res.render('product_detail', { product });
