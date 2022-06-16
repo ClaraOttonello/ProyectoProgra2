@@ -7,8 +7,8 @@ const userController = {
 
     myProfile: function(req, res) {
         user.findByPk(req.session.user.id, { include: [ { association: 'products' } ] })
-            .then(function (user) {
-                res.render('myProfile', { user, products});
+            .then(function (data) {
+                res.render('profile', { data, products});
             })
             .catch(function (error) {
                 res.send(error)
@@ -17,17 +17,23 @@ const userController = {
    profile: function(req, res) {
     
         user.findByPk(req.params.id, { include: [ { association: 'products' } ] })
-            .then(function (user) {
-                res.render('myProfile', { user, products });
+            .then(function (data) {
+                res.render('profile', { data, products });
             })
             .catch(function (error) {
                 res.send(error)
             });
     },
 
-    edit: function (req, res) {
-        res.render('edit_profile');
-    },
+    edit: function(req, res) {
+        product.findByPk(req.params.id)
+             .then(function (user) {
+                 res.render('edit_profile', { user });
+             })
+             .catch(function (error) {
+                 res.send(error);
+             })
+     },
 
     login: function (req, res) {
         res.render('login', {title: 'Login'});
@@ -63,7 +69,8 @@ const userController = {
         user.create({
                 username: req.body.username,
                 pass: hashedPassword,
-                email: req.body.email
+                email: req.body.email,
+                img: (req.file.path).replace('public', '')
             })
             .then(function () {
                 res.redirect('/products');
