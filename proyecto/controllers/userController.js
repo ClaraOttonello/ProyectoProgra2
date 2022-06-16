@@ -8,21 +8,22 @@ const userController = {
     myProfile: function(req, res) {
         user.findByPk(req.session.user.id, { include: [ { association: 'products' } ] })
             .then(function (user) {
-                res.render('profile', { user, products});
+                res.render('myProfile', { user, products});
             })
             .catch(function (error) {
                 res.send(error)
             });
     },
-   /*  profile: function(req, res) {
+   profile: function(req, res) {
+    
         user.findByPk(req.params.id, { include: [ { association: 'products' } ] })
             .then(function (user) {
-                res.render('profile', { user });
+                res.render('myProfile', { user, products });
             })
             .catch(function (error) {
                 res.send(error)
             });
-    },*/
+    },
 
     edit: function (req, res) {
         res.render('edit_profile');
