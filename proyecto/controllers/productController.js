@@ -67,6 +67,7 @@ const productController = {
     },
 
     update: function(req, res) {
+        if (req.file) req.body.cover = (req.file.path).replace('public', '');
         product.update(req.body, { where: { id: req.params.id } })
             .then(function(products) {
                 res.redirect('/')
@@ -75,6 +76,7 @@ const productController = {
                 res.send(error);
             })
     },
+
     comment: function(req, res) {
         if (!req.session.user) { 
             throw Error('Not authorized.')

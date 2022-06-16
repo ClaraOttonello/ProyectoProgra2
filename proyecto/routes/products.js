@@ -9,7 +9,7 @@ router.get('/detail/:id', controller.show);
 router.post('/detail/:id', controller.comment);
 
 router.get('/:id/edit', controller.edit);
-router.post('/:id/edit', controller.update); //falta algo aca
+router.post('/:id/edit', upload.single('img'), controller.update);
 
 router.get('/add', controller.add);
 router.post('/add', upload.single('img'), controller.store);

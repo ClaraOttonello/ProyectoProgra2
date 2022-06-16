@@ -34,8 +34,11 @@
   </div>
 </div>
 <% if (locals.user && user.id == product.user_id) { %>
-  <form action="/product/<%= product.id %>/delete" method="post">
+  <form action="/products/<%= product.id %>/delete" method="POST">
     <input class="btn btn-danger" type="submit" value="Borrar">
+  </form>
+  <form action="/products/<%= product.id %>/edit" method="GET">
+    <input class="btn btn-danger" type="submit" value="Edit">
   </form>
 <% } %>
 <%- include('./partials/footer.ejs') %> 
