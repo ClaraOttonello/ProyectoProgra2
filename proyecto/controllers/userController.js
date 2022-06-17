@@ -62,15 +62,23 @@ const userController = {
         res.render('register');
     },
     
-    store: function (req, res) {
+    store: async function (req, res, next) {
+        try {
+            if (!req.body.username) { throw Error('Not username provided.') }
+            if (!req.body.email) { throw Error('Not email provided.') }
+            if (req.body.pass.length < 4) { throw Error('Password too short.') }
+            const user = await db.users.findOne({ where: { email: req.body.email } })
+            if (user) { throw Error('Email already in use.') }
+        } catch (err) {
+            return res.render('register', { error: err.message });
+        }
         
-        if (!req.body.email) { throw Error('Not email provided.') }
         const hashedPassword = hasher.hashSync(req.body.pass, 10);
         user.create({
                 username: req.body.username,
                 pass: hashedPassword,
                 email: req.body.email,
-                img: (req.file.path).replace('public', '')
+           //     img: (req.file.path).replace('public', '')
             })
             .then(function () {
                 res.redirect('/products');
