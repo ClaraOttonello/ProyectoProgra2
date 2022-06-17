@@ -40,7 +40,7 @@ const userController = {
     },
 
     access: function(req, res, next) {
-        user.findOne({ where: { username: req.body.username }})
+        user.findOne({ where: { email: req.body.email }})
             .then(function(user) {
                 if (!user) throw Error('User not found.')
                 if (hasher.compareSync(req.body.pass, user.pass)) {

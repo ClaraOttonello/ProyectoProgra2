@@ -24,12 +24,13 @@ const indexController = {
             }, 
             include: [ { association: 'owner' } ] 
         }).then(function (products) {
-                res.render('product_index', { products });
-            })
+                res.render('search_results', { products });
+            })//product_index
             .catch(function (error) {
                 res.send(error)
             });
     },
+    
 }
 
 module.exports = indexController;
