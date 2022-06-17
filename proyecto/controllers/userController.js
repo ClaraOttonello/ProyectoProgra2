@@ -1,12 +1,11 @@
 var db = require('../database/models')
 const products = db.products
-const user = db.users
 const hasher = require('bcryptjs')
 
 const userController = {
 
     myProfile: function(req, res) {
-        user.findByPk(req.session.user.id, { include: [ { association: 'products' } ] })
+        db.users.findByPk(req.session.user.id, { include: [ { association: 'products' } ] })
             .then(function (data) {
                 res.render('profile', { data, products});
             })
@@ -16,7 +15,7 @@ const userController = {
     },
    profile: function(req, res) {
     
-        user.findByPk(req.params.id, { include: [ { association: 'products' } ] })
+        db.users.findByPk(req.params.id, { include: [ { association: 'products' } ] })
             .then(function (data) {
                 res.render('profile', { data, products });
             })
@@ -40,7 +39,7 @@ const userController = {
     },
 
     access: function(req, res, next) {
-        user.findOne({ where: { email: req.body.email }})
+        db.users.findOne({ where: { email: req.body.email }})
             .then(function(user) {
                 if (!user) throw Error('User not found.')
                 if (hasher.compareSync(req.body.pass, user.pass)) {
@@ -74,7 +73,7 @@ const userController = {
         }
         
         const hashedPassword = hasher.hashSync(req.body.pass, 10);
-        user.create({
+        db.users.create({
                 username: req.body.username,
                 pass: hashedPassword,
                 email: req.body.email,

@@ -1,11 +1,10 @@
 var db = require ('../database/models');
-const products = db.products;
 var op = db.Sequelize.Op;
 
 const indexController = {
     
     index: function (req, res) {
-        products.findAll()
+        db.products.findAll()
             .then(function(products){
                 res.render('product_index', {products});
             })
@@ -15,7 +14,7 @@ const indexController = {
     },
 
     search: function(req, res) {
-        products.findAll({ 
+        db.products.findAll({ 
             where: {
                 [op.or]: [
                     { _name: { [op.like]: "%"+req.query.criteria+"%"} },

@@ -1,10 +1,10 @@
 var db = require('../database/models');
-const product = db.products;
+
 
 const productController = {
 
     index: function (req, res) {
-        product.findAll({ 
+        db.products.findAll({ 
             include: { all: true, nested: false }, 
             order: [ ['id', 'DESC']],
         })
@@ -17,7 +17,7 @@ const productController = {
     },
 
     show: function(req, res) {
-        product.findByPk(req.params.id, {include:{ all: true, nested:true} })
+        db.products.findByPk(req.params.id, {include:{ all: true, nested:true} })
             .then(function (product) {
                 console.log(product.dataValues);
                 res.render('product_detail', { product });
@@ -41,7 +41,7 @@ const productController = {
         }
         req.body.user_id = req.session.user.id;
         if (req.file) req.body.img = (req.file.path).replace('public', '');
-        product.create(req.body)
+        db.products.create(req.body)
             .then(function() {
                 res.redirect('/')
             })
@@ -59,7 +59,7 @@ const productController = {
         if (!req.session.user) { 
             throw Error('Not authorized.')
         } //chequear
-        product.destroy({ where: { id: req.params.id } })
+        db.products.destroy({ where: { id: req.params.id } })
             .then(function() {
                 res.redirect('/')
             })
@@ -69,7 +69,7 @@ const productController = {
     },
     
     edit: function(req, res) {
-       product.findByPk(req.params.id)
+        db.products.findByPk(req.params.id)
             .then(function (products) {
                 res.render('product_edit', { products });
             })
@@ -80,7 +80,7 @@ const productController = {
 
     update: function(req, res) {
         if (req.file) req.body.cover = (req.file.path).replace('public', '');
-        product.update(req.body, { where: { id: req.params.id } })
+        db.products.update(req.body, { where: { id: req.params.id } })
             .then(function(products) {
                 res.redirect('/')
             })
