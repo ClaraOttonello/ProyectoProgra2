@@ -4,7 +4,7 @@ const productController = {
 
     index: function (req, res) {
         db.products.findAll({ 
-            include: { all: true, nested: false }, 
+            include: { all: true, nested: true }, 
             order: [ ['id', 'DESC']],
         })
             .then(function(products){

@@ -33,6 +33,16 @@ const userController = {
              })
      },
 
+    update: function(req, res) {
+        db.users.update(req.body, { where: { id: req.params.id } })
+            .then(function(users) {
+                res.redirect('/')
+            })
+            .catch(function(error) {
+                res.send(error);
+            })
+    },
+
     login: function (req, res) {
         res.render('login', {title: 'Login'});
     },

@@ -3,13 +3,13 @@ var op = db.Sequelize.Op;
 
 const indexController = {
     
-    index:function (req, res) {
+    index: function (req, res) {
         db.products.findAll({ 
-            include: { all: true, nested: false }, 
+            include: { all: true, nested: true }, 
             order: [ ['id', 'DESC']],
         })
             .then(function(products){
-                res.render('product_index', {products});
+                res.render('product_index', { products });
             })
             .catch(function (error) {
                 res.send(error)
