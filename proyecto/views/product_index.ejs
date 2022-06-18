@@ -27,9 +27,14 @@
                       <p>
                         <%= products[i]._description %>
                       </p>
-                      <a href="/users/<%= products[i].owner?.id %>" class="product-detail-description">
-                        <h4> Owner: <%= products[i].owner?.username%>
-                        </h4>
+                
+                        <% if (products[i].owner != null) { %> 
+                          <h4> <a href="/users/<%= products[i].owner?.id %>" class="product-detail-description">  Owner: <%= products[i].owner?.username%> 
+                       </a> </h4>
+                        <% } else { %>
+                          <h4> Owner: Furniture </h4>
+                            <% } %>
+
                         <p>Comentarios:
                            <%= products[i].comments.length %>
                         </p>
