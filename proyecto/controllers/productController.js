@@ -3,20 +3,20 @@ var db = require('../database/models');
 const productController = {
 
     index: function (req, res) {
-        db.products.findAll({ 
-            include: { all: true, nested: true }, 
-            order: [ ['id', 'DESC']],
+        db.products.findAll({
+            include: { all: true, nested: true },
+            order: [['id', 'DESC']],
         })
-            .then(function(products){
-                res.render('product_index', {products});
+            .then(function (products) {
+                res.render('product_index', { products });
             })
             .catch(function (error) {
                 res.send(error)
-            });           
+            });
     },
 
-    show: function(req, res) {
-        db.products.findByPk(req.params.id, {include:{ all: true, nested:true} })
+    show: function (req, res) {
+        db.products.findByPk(req.params.id, { include: { all: true, nested: true } })
             .then(function (product) {
                 console.log(product.dataValues);
                 res.render('product_detail', { product });
@@ -28,23 +28,23 @@ const productController = {
     },
 
     add: function (req, res) {
-        if (!req.session.user) { 
+        if (!req.session.user) {
             throw Error('Not authorized.')
         }
         res.render('add_product');
     },
 
-    store: function(req, res) {
-        if (!req.session.user) { 
+    store: function (req, res) {
+        if (!req.session.user) {
             return res.render('add_product', { error: 'Not authorized.' });
         }
         req.body.user_id = req.session.user.id;
         if (req.file) req.body.img = (req.file.path).replace('public', '');
         db.products.create(req.body)
-            .then(function() {
+            .then(function () {
                 res.redirect('/')
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 res.send(error);
             })
         //image es el nombre del campo del formulario que carga la imagen
@@ -53,20 +53,20 @@ const productController = {
         //el path lo aclaramos nosotoros en la carpeta destin   ation en la ruta   
     },
 
-    delete: function(req, res) {
-        if (!req.session.user) { 
+    delete: function (req, res) {
+        if (!req.session.user) {
             throw Error('Not authorized.')
         } //chequear
         db.products.destroy({ where: { id: req.params.id } })
-            .then(function() {
+            .then(function () {
                 res.redirect('/')
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 res.send(error);
             })
     },
-    
-    edit: function(req, res) {
+
+    edit: function (req, res) {
         db.products.findByPk(req.params.id)
             .then(function (products) {
                 res.render('product_edit', { products });
@@ -76,19 +76,19 @@ const productController = {
             })
     },
 
-    update: function(req, res) {
+    update: function (req, res) {
         if (req.file) req.body.cover = (req.file.path).replace('public', '');
         db.products.update(req.body, { where: { id: req.params.id } })
-            .then(function(products) {
+            .then(function (products) {
                 res.redirect('/')
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 res.send(error);
             })
     },
 
-    comment: function(req, res) {
-        if (!req.session.user) { 
+    comment: function (req, res) {
+        if (!req.session.user) {
             throw Error('Not authorized.')
         }
         // Set user from session user
@@ -96,10 +96,10 @@ const productController = {
         // Set book from url params
         req.body.product_id = req.params.id;
         db.comment.create(req.body)
-            .then(function() {
+            .then(function () {
                 res.redirect('/products/detail/' + req.params.id)
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 res.send(error);
             })
     },

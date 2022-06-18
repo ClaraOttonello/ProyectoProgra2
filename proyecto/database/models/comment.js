@@ -1,5 +1,5 @@
 module.exports = function (sequelize, dataTypes) {
-let alias = 'comment';
+    let alias = 'comment';
     const cols = {
         id: {
             autoIncrement: true,
@@ -9,7 +9,7 @@ let alias = 'comment';
         content: { type: dataTypes.STRING },
         user_id: { type: dataTypes.INTEGER },
         product_id: { type: dataTypes.INTEGER },
-        created_at: { type: dataTypes.DATE},
+        created_at: { type: dataTypes.DATE },
     }
 
     const configs = {
@@ -17,17 +17,17 @@ let alias = 'comment';
         timestamps: false
     }
 
-    const Comment = sequelize.define (alias, cols, configs);
+    const Comment = sequelize.define(alias, cols, configs);
 
-    Comment.associate = function(models) {
+    Comment.associate = function (models) {
         Comment.belongsTo(models.users, {
             as: 'user',
             foreignKey: 'user_id'
         }),
-        Comment.belongsTo(models.products, {
-            as: 'product',
-            foreignKey: 'product_id'
-        })
+            Comment.belongsTo(models.products, {
+                as: 'product',
+                foreignKey: 'product_id'
+            })
     }
 
     return Comment;

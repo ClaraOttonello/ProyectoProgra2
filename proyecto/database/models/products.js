@@ -1,5 +1,5 @@
 module.exports = function (sequelize, dataTypes) {
-let alias = 'products';
+    let alias = 'products';
     const cols = {
         id: {
             autoIncrement: true,
@@ -20,14 +20,14 @@ let alias = 'products';
     const Product = sequelize.define(alias, cols, configs);
 
     Product.associate = function (models) {
-        Product.belongsTo(models.users,{
+        Product.belongsTo(models.users, {
             as: 'owner',
             foreignKey: 'user_id'
         }),
-        Product.hasMany(models.comment, {
-            as: 'comments',
-            foreignKey: 'product_id'
-        })
+            Product.hasMany(models.comment, {
+                as: 'comments',
+                foreignKey: 'product_id'
+            })
     }
 
     return Product;

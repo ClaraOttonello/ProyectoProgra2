@@ -4,17 +4,17 @@ const hasher = require('bcryptjs')
 
 const userController = {
 
-    myProfile: function(req, res) {
-        db.users.findByPk(req.session.user.id, { include: [ { association: 'products' } ] })
+    myProfile: function (req, res) {
+        db.users.findByPk(req.session.user.id, { include: [{ association: 'products' }] })
             .then(function (data) {
-                res.render('profile', { data, products});
+                res.render('profile', { data, products });
             })
             .catch(function (error) {
                 res.send(error)
             });
     },
-   profile: function(req, res) {
-        db.users.findByPk(req.params.id, { include: [ { association: 'products' } ] })
+    profile: function (req, res) {
+        db.users.findByPk(req.params.id, { include: [{ association: 'products' }] })
             .then(function (data) {
                 res.render('profile', { data, products });
             })
@@ -23,40 +23,40 @@ const userController = {
             });
     },
 
-    edit: function(req, res) {
+    edit: function (req, res) {
         db.users.findByPk(req.params.id)
-             .then(function (data) {
-                 res.render('edit_profile', { data });
-             })
-             .catch(function (error) {
-                 res.send(error);
-             })
-     },
+            .then(function (data) {
+                res.render('edit_profile', { data });
+            })
+            .catch(function (error) {
+                res.send(error);
+            })
+    },
 
-    update: function(req, res) {
+    update: function (req, res) {
         db.users.update(req.body, { where: { id: req.params.id } })
-            .then(function(users) {
+            .then(function (users) {
                 res.redirect('/')
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 res.send(error);
             })
     },
 
     login: function (req, res) {
-        res.render('login', {title: 'Login'});
+        res.render('login', { title: 'Login' });
     },
 
-    access: function(req, res, next) {
-        db.users.findOne({ where: { email: req.body.email }})
-            .then(function(user) {
+    access: function (req, res, next) {
+        db.users.findOne({ where: { email: req.body.email } })
+            .then(function (user) {
                 if (!user) throw Error('User not found.')
                 if (hasher.compareSync(req.body.pass, user.pass)) {
                     req.session.user = user;
-                   if (req.body.rememberme) {
-                       res.cookie('userId', user.id, {maxAge: 1000 * 60 * 60 * 7 });
-                   }
-                   res.redirect('/');
+                    if (req.body.rememberme) {
+                        res.cookie('userId', user.id, { maxAge: 1000 * 60 * 60 * 7 });
+                    }
+                    res.redirect('/');
                 } else {
                     throw Error('Incorrect password.')
                 }
@@ -69,7 +69,7 @@ const userController = {
     register: function (req, res) {
         res.render('register');
     },
-    
+
     store: async function (req, res, next) {
         try {
             if (!req.body.username) { throw Error('Not username provided.') }
@@ -80,20 +80,20 @@ const userController = {
         } catch (err) {
             return res.render('register', { error: err.message });
         }
-        
+
         const hashedPassword = hasher.hashSync(req.body.pass, 10);
         db.users.create({
-                username: req.body.username,
-                pass: hashedPassword,
-                email: req.body.email,
-           //     img: (req.file.path).replace('public', '')
-            })
+            username: req.body.username,
+            pass: hashedPassword,
+            email: req.body.email,
+            //     img: (req.file.path).replace('public', '')
+        })
             .then(function () {
                 res.redirect('/products');
             })
             .catch(function (error) {
                 res.send(error);
-            }) 
+            })
     },
 
     logout: function (req, res, next) {

@@ -8,8 +8,8 @@ module.exports = function (sequelize, dataTypes) {
         },
         email: { type: dataTypes.STRING },
         username: { type: dataTypes.STRING },
-        pass: {type: dataTypes.STRING},
-        birthd: { type: dataTypes.DATE},
+        pass: { type: dataTypes.STRING },
+        birthd: { type: dataTypes.DATE },
         img: { type: dataTypes.STRING },
     }
 
@@ -20,7 +20,7 @@ module.exports = function (sequelize, dataTypes) {
 
     const User = sequelize.define(alias, cols, configs);
 
-    User.associate = function(models) {
+    User.associate = function (models) {
         User.hasMany(models.products, {
             as: 'products',
             foreignKey: 'user_id'

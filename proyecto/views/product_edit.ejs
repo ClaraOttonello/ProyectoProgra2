@@ -1,28 +1,29 @@
 <%- include('./partials/headerLogeado.ejs') %>
-    <div class="container products-wrapper">
-      <div class="row">
-        <div class="col-12">
-          <h2 class="products-title">Editar Producto</h2>
-        </div>
-        <form method="post" class="form-label" enctype="multipart/form-data" >
-          <div>
-            <label for="_name" class="form-label">Nombre del producto</label>
-            <input type="text" id="_name" class="form-input" value="<%= products._name %>" name="_name">
-          </div>
-          <div>
-            <label for="img" class="form-label">Foto de producto</label>
-            <input type="file" id="img" class="form-input" value="<%= products.img %>" name="img">
-          </div>
-          <div>
-            <label for="_description" class="form-label">Descripción</label>
-            <input type="text" id="_description" class="form-input" value="<%= products._description %>" name="_description">
-          </div>
-          <div>
-            <label for="price" class="form-label">Precio</label>
-            <input type="text" id="price" class="form-input" value="<%= products.price %>" name="price">
-          </div>
-          <button class="buy-now-button" type="submit">Editar Producto</button>
-        </form>
+  <div class="container products-wrapper">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="products-title">Editar Producto</h2>
       </div>
-    </div>  
-<%- include('./partials/footer.ejs') %>
+      <form method="post" class="form-label" enctype="multipart/form-data">
+        <div>
+          <label for="_name" class="form-label">Nombre del producto</label>
+          <input type="text" id="_name" class="form-input" value="<%= products._name %>" name="_name">
+        </div>
+        <div>
+          <label for="img" class="form-label">Foto de producto</label>
+          <input type="file" id="img" class="form-input" value="<%= products.img %>" name="img">
+        </div>
+        <div>
+          <label for="_description" class="form-label">Descripción</label>
+          <input type="text" id="_description" class="form-input" value="<%= products._description %>"
+            name="_description">
+        </div>
+        <div>
+          <label for="price" class="form-label">Precio</label>
+          <input type="text" id="price" class="form-input" value="<%= products.price %>" name="price">
+        </div>
+        <button class="buy-now-button" type="submit">Editar Producto</button>
+      </form>
+    </div>
+  </div>
+  <%- include('./partials/footer.ejs') %>

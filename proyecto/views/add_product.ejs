@@ -1,29 +1,29 @@
 <%- include('./partials/headerLogeado.ejs') %>
-    <div class="container products-wrapper">
-      <div class="row">
-        <div class="col-12">
-          <h2 class="products-title">Agregar productos</h2>
-        </div>
-        <!-- Show the "ultimos" products -->
-        <form method='post' class="form-label" enctype="multipart/form-data" >
-          <div>
-            <label for="name" class="form-label">Nombre del producto</label>
-            <input name="_name" type="text" id="_name" class="form-input">
-          </div>
-          <div>
-            <label for="productPh" class="form-label">Foto de producto</label>
-            <input name="img" type="file" id="img" name="img" class="form-input">
-          </div>
-          <div>
-            <label for="description" class="form-label">Descripción</label>
-            <input name="_description" type="text" id="description" class="form-input">
-          </div>
-          <div>
-            <label for="price" class="form-label">Precio</label>
-            <input name="price" type="text" id="price" class="form-input">
-          </div>
-          <button class="buy-now-button" type="submit"> Agregar Producto</button>
-        </form>
+  <div class="container products-wrapper">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="products-title">Agregar productos</h2>
       </div>
-    </div>  
-<%- include('./partials/footer.ejs') %>
+      <!-- Show the "ultimos" products -->
+      <form method='post' class="form-label" enctype="multipart/form-data">
+        <div>
+          <label for="name" class="form-label">Nombre del producto</label>
+          <input name="_name" type="text" id="_name" class="form-input">
+        </div>
+        <div>
+          <label for="productPh" class="form-label">Foto de producto</label>
+          <input name="img" type="file" id="img" name="img" class="form-input">
+        </div>
+        <div>
+          <label for="description" class="form-label">Descripción</label>
+          <input name="_description" type="text" id="description" class="form-input">
+        </div>
+        <div>
+          <label for="price" class="form-label">Precio</label>
+          <input name="price" type="text" id="price" class="form-input">
+        </div>
+        <button class="buy-now-button" type="submit"> Agregar Producto</button>
+      </form>
+    </div>
+  </div>
+  <%- include('./partials/footer.ejs') %>
