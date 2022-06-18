@@ -20,12 +20,12 @@
            <article class="product-box_data">
             <h2><%= products[i]._name %></h2>
             <p><%= products[i]._description %></p>
-            <p><%= products[i].owner?.username%></p>
+            <a href="/users/<%= products[i].owner?.id %>" ><p><%= products[i].owner?.username%></p></a>
             <p>Comentarios: 12</p>
           </article>
         </a>
       </section>
     </div>
     <%}} %>
-
+</div>
 <%- include('./partials/footer.ejs') %>

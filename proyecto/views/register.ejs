@@ -1,10 +1,5 @@
 <%- include('./partials/headerLogeado.ejs') %> 
 <main class="form">
-  <% if (locals.error) { %>
-		<div class="alert alert-danger" role="alert">
-			<%= error %>
-		</div>
-	<% } %>
 <form action= "/users/register" class="form-label" method="POST" enctype="multipart/form-data"> 
    <div>
     <label for="email" class="form-label">Email</label>
