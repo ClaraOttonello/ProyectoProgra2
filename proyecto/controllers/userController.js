@@ -14,7 +14,6 @@ const userController = {
             });
     },
    profile: function(req, res) {
-    
         db.users.findByPk(req.params.id, { include: [ { association: 'products' } ] })
             .then(function (data) {
                 res.render('profile', { data, products });
@@ -25,9 +24,9 @@ const userController = {
     },
 
     edit: function(req, res) {
-        product.findByPk(req.params.id)
-             .then(function (user) {
-                 res.render('edit_profile', { user });
+        db.users.findByPk(req.params.id)
+             .then(function (data) {
+                 res.render('edit_profile', { data });
              })
              .catch(function (error) {
                  res.send(error);

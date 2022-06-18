@@ -1,6 +1,5 @@
 var db = require('../database/models');
 
-
 const productController = {
 
     index: function (req, res) {
@@ -51,8 +50,7 @@ const productController = {
         //image es el nombre del campo del formulario que carga la imagen
         //para que venga el req.file primero le pusimos al formulario el enctype="multipart/form-data" 
         //en req.file hay muchas propiedades y la mas importante es el path que tiene la ruta completa en donde esta el archivo
-        //el path lo aclaramos nosotoros en la carpeta destin   ation en la ruta
-        
+        //el path lo aclaramos nosotoros en la carpeta destin   ation en la ruta   
     },
 
     delete: function(req, res) {

@@ -17,7 +17,7 @@
         <h3 ><%= data.email %></h3>
       <div>
         <ul class="">
-          <li>8 productos</li>
+          <li><%= data.products.length %> productos</li>
           <li>200 seguidores</li>
           <li>300 comentarios</li>
         </ul>
@@ -51,9 +51,7 @@
           </figure>
           <article class="product-box_data">
             <h2><%= data.products[i]._name %></h2>
-           
             <p><%= data.products[i]._description %></p>
-
           </article>
         </a>
       </section>
@@ -61,6 +59,4 @@
     <%} %>
   </div>
 </div>
-<!-- /Mis productos -->
-
 <%- include('./partials/footer.ejs') %>

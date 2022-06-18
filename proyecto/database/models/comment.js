@@ -19,7 +19,6 @@ let alias = 'comment';
 
     const Comment = sequelize.define (alias, cols, configs);
 
-    
     Comment.associate = function(models) {
         Comment.belongsTo(models.users, {
             as: 'user',

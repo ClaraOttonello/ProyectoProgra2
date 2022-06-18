@@ -3,29 +3,25 @@
 <form action= "/" class="form-label" enctype="multipart/form-data" >
    <div>
     <label for="Email" class="form-label">Email</label>
-    <input type="email" id="Email" class="form-input" placeholder="leo10@gmail.com" >
+    <input type="email" id="Email" class="form-input" value="<%= user.email %>">
   </div>
   <div>
     <label for="username" class="form-label">Nombre de usuario</label>
-    <input type="text" id="username" class="form-input" placeholder="Leonel Messi">
+    <input type="text" id="username" class="form-input" value="<%= user.username %>">
   </div>
   <div>
     <label for="password" class="form-label">Contraseña</label>
-    <input type="password" id="password" class="form-input">
+    <input type="password" id="password" class="form-input" value="<%= user.pass %>">
   </div>
   <div>
     <label for="birthday" class="form-label">Fecha de nacimiento</label>
-    <input type="date" id="birthday"class="form-input" >
-  </div>
-  <div>
-    <label for="phone" class="form-label">ID</label>
-    <input type="number" id="ID" class="form-input">
+    <input type="date" id="birthday" class="form-input">
   </div>
   <div>
     <label for="phone" class="form-label">Foto de perfil</label>
     <input type="file" id="profilePh" class="form-input">
   </div>
-  <button class="buy-now-button" type="submit"> guardar</button>
+  <button class="buy-now-button" type="submit">Guardar</button>
 </form>
 </main>
 <%- include('./partials/footer.ejs') %> 
