@@ -24,7 +24,7 @@
           <% for (let i= 0; i < product.comments.length; i++) { %>
             <div class="card mb-2">
               <div class="card-body">
-                <b><%= product.comments[i].user.username %></b></br>
+              <a href="/users/<%= product.comments[i].user.id%>"><b><%= product.comments[i].user.username %></b></a>
                 <%= product.comments[i].content %>
               </div>
             </div>

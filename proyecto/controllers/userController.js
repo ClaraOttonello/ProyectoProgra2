@@ -49,7 +49,7 @@ const userController = {
                    }
                    res.redirect('/');
                 } else {
-                    throw Error('Invalid credentials.')
+                    throw Error('Incorrect password.')
                 }
             })
             .catch(function (err) {

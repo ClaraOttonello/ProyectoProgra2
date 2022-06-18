@@ -4,7 +4,7 @@
     <h2 class="products-title">Resultados de búsqueda</h2>
   </div>
   <% if (products.length == 0){%>
-    <h2 class="products-title"> "  No se hay encontrado resultados para tu búsqueda..."</h2>
+    <h2 class="products-title"> No se han encontrado resultados para tu búsqueda</h2>
   <% }else { %>
   <% for (let i=0; i<products.length; i++){ %>
     <div class="col-12 col-sm-6 col-lg-3">
@@ -20,7 +20,7 @@
            <article class="product-box_data">
             <h2><%= products[i]._name %></h2>
             <p><%= products[i]._description %></p>
-            <p><%= products[i].username %></p>
+            <p><%= products[i].owner?.username%></p>
             <p>Comentarios: 12</p>
           </article>
         </a>

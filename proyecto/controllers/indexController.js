@@ -3,8 +3,11 @@ var op = db.Sequelize.Op;
 
 const indexController = {
     
-    index: function (req, res) {
-        db.products.findAll()
+    index:function (req, res) {
+        db.products.findAll({ 
+            include: { all: true, nested: false }, 
+            order: [ ['id', 'DESC']],
+        })
             .then(function(products){
                 res.render('product_index', {products});
             })
