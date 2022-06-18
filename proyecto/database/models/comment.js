@@ -22,7 +22,7 @@ module.exports = function (sequelize, dataTypes) {
     Comment.associate = function (models) {
         Comment.belongsTo(models.users, {
             as: 'user',
-            foreignKey: 'user_id'
+            foreignKey: 'id'
         }),
             Comment.belongsTo(models.products, {
                 as: 'product',

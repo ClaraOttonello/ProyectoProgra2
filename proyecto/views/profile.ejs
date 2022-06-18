@@ -9,9 +9,11 @@
         <div class="d-flex align-items-center ">
           <h1 class="main-title">
             <%= data.username %>
+            <% if (locals.user && data.id == user.id) { %>
               <a href="/users/me/edit">
                 <i class="fas fa-cog"></i>
               </a>
+              <% } %>
           </h1>
           <a class="btn mt-3 ml-4" href="">SEGUIR</a>
         </div>
@@ -20,11 +22,9 @@
         </h3>
         <div>
           <ul class="">
-            <li>
-              <%= data.products.length %>
-            </li>
+            <li><%= data.products.length %></li>
             <li>200 seguidores</li>
-            <li>300 comentarios</li>
+            <li><%= data.com_user.length %> comentarios</li>
           </ul>
         </div>
       </div>

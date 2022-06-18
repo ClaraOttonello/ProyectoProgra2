@@ -5,7 +5,7 @@ const hasher = require('bcryptjs')
 const userController = {
 
     myProfile: function (req, res) {
-        db.users.findByPk(req.session.user.id, { include: [{ association: 'products' }] })
+        db.users.findByPk(req.session.user.id, { include: { all: true, nested: true } })
             .then(function (data) {
                 res.render('profile', { data, products });
             })
@@ -14,7 +14,7 @@ const userController = {
             });
     },
     profile: function (req, res) {
-        db.users.findByPk(req.params.id, { include: [{ association: 'products' }] })
+        db.users.findByPk(req.params.id, { include: { all: true, nested: true } })
             .then(function (data) {
                 res.render('profile', { data, products });
             })
@@ -35,7 +35,7 @@ const userController = {
 
     update: function (req, res) {
         db.users.update(req.body, { where: { id: req.params.id } })
-            .then(function (users) {
+            .then(function (data) {
                 res.redirect('/')
             })
             .catch(function (error) {
