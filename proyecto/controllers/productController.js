@@ -77,9 +77,9 @@ const productController = {
     },
 
     update: function (req, res) {
-        if (req.file) req.body.cover = (req.file.path).replace('public', '');
+        if (req.file) req.body.img = (req.file.path).replace('public', '');
         db.products.update(req.body, { where: { id: req.params.id } })
-            .then(function (products) {
+            .then(function () {
                 res.redirect('/')
             })
             .catch(function (error) {
@@ -88,8 +88,9 @@ const productController = {
     },
 
     comment: function (req, res) {
-        if (!req.session.user) {
-            throw Error('Not authorized.')
+      
+        if(!req.session.user){ 
+            return res.render('login', {error:'Iniciá sesión/ registrate para comentar'})
         }
         // Set user from session user
         req.body.user_id = req.session.user.id;
@@ -102,6 +103,7 @@ const productController = {
             .catch(function (error) {
                 res.send(error);
             })
+        
     },
 }
 

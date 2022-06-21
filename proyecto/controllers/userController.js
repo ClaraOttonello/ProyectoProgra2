@@ -1,5 +1,5 @@
-var db = require('../database/models')
-const products = db.products
+var db = require('../database/models');
+const products = db.products;
 const hasher = require('bcryptjs')
 
 const userController = {
@@ -22,7 +22,6 @@ const userController = {
                 res.send(error)
             });
     },
-
     edit: function (req, res) {
         db.users.findByPk(req.params.id)
             .then(function (data) {
@@ -32,7 +31,6 @@ const userController = {
                 res.send(error);
             })
     },
-
     update: function (req, res) {
         db.users.update(req.body, { where: { id: req.params.id } })
             .then(function (users) {
@@ -42,7 +40,6 @@ const userController = {
                 res.send(error);
             })
     },
-
     login: function (req, res) {
         res.render('login', { title: 'Login' });
     },
@@ -80,13 +77,13 @@ const userController = {
         } catch (err) {
             return res.render('register', { error: err.message });
         }
-
         const hashedPassword = hasher.hashSync(req.body.pass, 10);
+        if (req.file) req.body.img = "/img/uploads/" + req.file.filename;
         db.users.create({
             username: req.body.username,
             pass: hashedPassword,
             email: req.body.email,
-            //     img: (req.file.path).replace('public', '')
+            img: req.body.img
         })
             .then(function () {
                 res.redirect('/products');

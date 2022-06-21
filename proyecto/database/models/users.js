@@ -11,6 +11,8 @@ module.exports = function (sequelize, dataTypes) {
         pass: { type: dataTypes.STRING },
         birthd: { type: dataTypes.DATE },
         img: { type: dataTypes.STRING },
+        updatedAt: { type: dataTypes.DATE },
+        createdAt: { type: dataTypes.DATE }
     }
 
     const configs = {
