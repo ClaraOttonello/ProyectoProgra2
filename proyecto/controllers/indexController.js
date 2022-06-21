@@ -24,7 +24,7 @@ const indexController = {
                     { _description: { [op.like]: "%" + req.query.criteria + "%" } }
                 ]
             },
-            include: [{ association: 'owner' }]
+            include: { all: true, nested: true },
         }).then(function (products) {
             res.render('search_results', { products });
         })//product_index

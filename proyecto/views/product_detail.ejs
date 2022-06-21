@@ -25,8 +25,8 @@
                 <p class="product-detail-description">
                   <%= product._description %>
                 </p>
-                <a href="/users/<%= product.owner.id%>" class="product-detail-description"><b> Owner: <%=
-                      product.owner.username %></b></a>
+                <a href="/users/<%= product.owner?.id%>" class="product-detail-description"><b> Owner: <%=
+                      product.owner?.username %></b></a>
         </article>
 
         <div class="col-12 col-lg-4">
