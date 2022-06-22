@@ -32,7 +32,18 @@ const userController = {
             })
     },
     update: function (req, res) {
-        db.users.update(req.body, { where: { id: req.params.id } })
+        const hashedPassword = hasher.hashSync(req.body.pass, 10);
+        if (req.file) req.body.img = "/img/uploads/" + req.file.filename;
+        db.users.update(
+            {
+            username: req.body.username,
+            pass: hashedPassword,
+            email: req.body.email,
+            img: req.body.img
+            },{
+                where: [{id:req.session.user.id }]
+            }
+        )
             .then(function (data) {
                 res.redirect('/')
             })
