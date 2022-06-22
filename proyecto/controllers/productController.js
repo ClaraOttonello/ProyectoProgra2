@@ -104,7 +104,7 @@ const productController = {
                 res.send(error);
             })
         
-    },
+    }
 }
 
 module.exports = productController;

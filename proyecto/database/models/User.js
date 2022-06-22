@@ -1,5 +1,7 @@
 module.exports = function (sequelize, dataTypes) {
+    
     let alias = 'users';
+    
     const cols = {
         id: {
             autoIncrement: true,
@@ -32,5 +34,6 @@ module.exports = function (sequelize, dataTypes) {
             foreignKey: 'user_id' 
         })
     }
+
     return User;
 }

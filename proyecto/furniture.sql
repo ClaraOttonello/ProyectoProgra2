@@ -3,7 +3,7 @@
 -- Host: 127.0.0.1    Database: furniture
 -- ------------------------------------------------------
 -- Server version	8.0.29
-
+DROP SCHEMA IF EXISTS furniture;
 CREATE SCHEMA furniture;
 USE furniture;
 
@@ -31,7 +31,9 @@ CREATE TABLE `comments` (
   `user_id` int DEFAULT NULL,
   `product_id` int DEFAULT NULL,
   `created_at` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -78,7 +80,7 @@ CREATE TABLE `users` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */; 
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

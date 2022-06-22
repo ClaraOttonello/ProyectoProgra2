@@ -13,6 +13,7 @@ const userController = {
                 res.send(error)
             });
     },
+
     profile: function (req, res) {
         db.users.findByPk(req.params.id, { include: { all: true, nested: true } })
             .then(function (data) {
@@ -22,6 +23,7 @@ const userController = {
                 res.send(error)
             });
     },
+
     edit: function (req, res) {
         db.users.findByPk(req.params.id)
             .then(function (data) {
@@ -31,6 +33,7 @@ const userController = {
                 res.send(error);
             })
     },
+
     update: function (req, res) {
         const hashedPassword = hasher.hashSync(req.body.pass, 10);
         if (req.file) req.body.img = "/img/uploads/" + req.file.filename;
@@ -51,6 +54,7 @@ const userController = {
                 res.send(error);
             })
     },
+
     login: function (req, res) {
         res.render('login', { title: 'Login' });
     },
@@ -88,8 +92,11 @@ const userController = {
         } catch (err) {
             return res.render('register', { error: err.message });
         }
+
         const hashedPassword = hasher.hashSync(req.body.pass, 10);
+        
         if (req.file) req.body.img = "/img/uploads/" + req.file.filename;
+        
         db.users.create({
             username: req.body.username,
             pass: hashedPassword,
@@ -108,7 +115,7 @@ const userController = {
         req.session.user = null;
         res.clearCookie('userId');
         res.redirect('/')
-    },
+    }
 }
 
 module.exports = userController;

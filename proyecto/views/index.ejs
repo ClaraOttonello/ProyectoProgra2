@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <%- include('./partials/headerLogeado.ejs') %>
-  <!-- Banner -->
   <div class="banner">
     <img src="img/banner.jpg" alt="Banner de ofertas" height="100%">
   </div>
-  <!-- /Banner -->
-
-  <!-- Novedades -->
   <div class="container products-wrapper">
     <div class="row">
       <div class="col-12">
         <h2 class="products-title">Novedades</h2>
       </div>
-      <!--     Show the "ultimos" products-->
       <% for (let i=0; i< products.lenght; i++){ %>
         <div class="col-12 col-sm-6 col-lg-3">
           <section class="product-box">
@@ -28,8 +23,7 @@
                 <p>
                   <%= products[i]._description %>
                 </p>
-                <p>Comentarios:
-                  <!--products.comments.lenght -->
+                <p>Comentarios: <%= products[i].comments.length %>
                 </p>
               </article>
             </a>

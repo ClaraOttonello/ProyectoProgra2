@@ -1,5 +1,7 @@
 module.exports = function (sequelize, dataTypes) {
+    
     let alias = 'comment';
+    
     const cols = {
         id: {
             autoIncrement: true,
@@ -24,10 +26,10 @@ module.exports = function (sequelize, dataTypes) {
             as: 'usercomment',
             foreignKey: 'user_id'
         }),
-            Comment.belongsTo(models.products, {
-                as: 'product',
-                foreignKey: 'product_id'
-            })
+        Comment.belongsTo(models.products, {
+            as: 'product',
+            foreignKey: 'product_id'
+        })
     }
 
     return Comment;
